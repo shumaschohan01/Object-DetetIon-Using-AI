@@ -3,6 +3,10 @@ from ultralytics import YOLO
 from PIL import Image
 import cv2
 import numpy as np
+import sys
+import subprocess
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "opencv-python-headless"])
 
 # 1. Page Configuration
 st.set_page_config(page_title="OBJECT Detection AI", page_icon="⛑️", layout="centered")
@@ -58,3 +62,4 @@ if uploaded_file is not None:
                 st.info("The model could not identify any objects in this image.")
 
             st.metric(label="Total Objects Found", value=len(detections))
+
