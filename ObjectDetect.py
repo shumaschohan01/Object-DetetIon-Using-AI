@@ -3,20 +3,17 @@ from ultralytics import YOLO
 from PIL import Image
 import cv2
 import numpy as np
-import sys
-import subprocess
-
-subprocess.check_call([sys.executable, "-m", "pip", "install", "opencv-python-headless"])
 
 # 1. Page Configuration
 st.set_page_config(page_title="OBJECT Detection AI", page_icon="⛑️", layout="centered")
 
 @st.cache_resource
 def load_yolo_model():
-    model_path = r"C:\Users\kk\OneDrive\Desktop\AI MODELS\Object.pt"
+    # Use relative path to model in repo
+    model_path = "Object.pt"
     return YOLO(model_path)
 
-# 🔥 LOAD MODEL HERE
+# Load model
 model = load_yolo_model()
 
 # 2. UI Layout
@@ -50,8 +47,11 @@ if uploaded_file is not None:
 
             if len(detections) > 0:
                 detected_names = [model.names[int(cls)] for cls in detections.cls]
+                st.write("Detected Classes:", detected_names)
 
-                if any("no plate" in name.lower() for name in detected_names):
+                detected_lower = [name.lower().replace("_", " ").strip() for name in detected_names]
+
+                if "no plate" in detected_lower:
                     st.success("### ✅ Prediction: OBJECT Detected")
                     st.balloons()
                 else:
@@ -62,4 +62,3 @@ if uploaded_file is not None:
                 st.info("The model could not identify any objects in this image.")
 
             st.metric(label="Total Objects Found", value=len(detections))
-
