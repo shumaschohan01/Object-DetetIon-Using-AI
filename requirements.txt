@@ -1,8 +1,10 @@
-streamlit
-ultralytics
-opencv-python-headless
-pillow
-numpy
-torch
+streamlit==1.30.0
+ultralytics==8.0.114
+opencv-python-headless==4.8.1.78
+pillow==10.0.0
+numpy==1.25.0
+torch==2.1.0
+
+
 
 
