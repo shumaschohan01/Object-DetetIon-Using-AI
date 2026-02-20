@@ -3,6 +3,7 @@ from ultralytics import YOLO
 from PIL import Image
 import numpy as np
 import urllib.request
+import cv2
 import os
 
 # ------------------------
