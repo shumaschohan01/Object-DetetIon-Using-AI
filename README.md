@@ -16,3 +16,13 @@ This repository contains a simple Streamlit app for object detection using the U
    ```bash
    git clone https://github.com/shumaschohan01/Object-DetetIon-Using-AI.git
    cd Object-DetetIon-Using-AI
+
+   
+Contact
+
+Shumas - shumaschohan0@gmail.com
+
+IF you want to run and check ,
+
+Project Link: https://object-detetion-using-ai-lb.streamlit.app
+
